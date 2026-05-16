@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:messageup.shop)",
+      "WebFetch(domain:bizvaarta.com)",
+      "WebFetch(domain:chronists.com)",
+      "Bash(powershell -Command \"\\(Get-Content 'c:/Users/bhask/Downloads/portfoilio/sections/atoms.jsx'\\) -replace '—', ':' | Set-Content 'c:/Users/bhask/Downloads/portfoilio/sections/atoms.jsx' -Encoding utf8\")",
+      "Bash(powershell -Command \"Get-Item 'c:/Users/bhask/Downloads/portfoilio/public/messageup/video.mp4' | Select-Object Name, Length; Get-Item 'c:/Users/bhask/Downloads/portfoilio/public/coding-knowledge/video.mp4' | Select-Object Name, Length\")",
+      "Bash(Test-Path \"c:/Users/bhask/Downloads/portfoilio/public/coding-knowledge/landing.png\")",
+      "Bash(Test-Path \"c:/Users/bhask/Downloads/portfoilio/public/messageup/video.mp4\")"
+    ]
+  }
+}
