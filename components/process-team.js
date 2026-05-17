@@ -1,6 +1,6 @@
-// Process + Team + Testimonial
+import { Check, Star, TeamAvatar } from './atoms';
 
-function Process() {
+export function Process() {
   const steps = [
     {
       n: '01',
@@ -65,7 +65,6 @@ function Process() {
             position: 'relative',
           }}
         >
-          {/* Connecting line */}
           <div aria-hidden="true" style={{
             position: 'absolute',
             top: 38,
@@ -76,7 +75,7 @@ function Process() {
             zIndex: 0,
           }} className="process-line" />
 
-          {steps.map((s, i) => (
+          {steps.map((s) => (
             <article
               key={s.n}
               className="lift"
@@ -89,7 +88,6 @@ function Process() {
                 zIndex: 1,
               }}
             >
-              {/* Step number node */}
               <div
                 style={{
                   width: 48, height: 48, borderRadius: '50%',
@@ -148,13 +146,13 @@ function Process() {
 }
 
 const TEAM = [
-  { name: 'Bhaskar Bhandari', role: 'Founder & Software Engineer',     initials: 'BB', tone: 'a', location: 'Dehradun, IN' },
-  { name: 'Harish',     role: 'UI / UX & Graphic Design', initials: 'H', tone: 'c', location: 'Dehradun, IN' },
-  { name: 'Nikhil',           role: 'Software Engineer',        initials: 'N', tone: 'b', location: 'Remote · India' },
-  { name: 'Rahul Fulara',     role: 'Market Research & SEO',    initials: 'RF', tone: 'd', location: 'Almora, IN' },
+  { name: 'Bhaskar Bhandari', role: 'Founder & Software Engineer', initials: 'BB', tone: 'a', location: 'Dehradun, IN' },
+  { name: 'Harish',           role: 'UI / UX & Graphic Design',    initials: 'H',  tone: 'c', location: 'Dehradun, IN' },
+  { name: 'Nikhil',           role: 'Software Engineer',           initials: 'N',  tone: 'b', location: 'Remote · India' },
+  { name: 'Hitesh Bisht',     role: 'Market Research & SEO',       initials: 'HB', tone: 'd', location: 'Almora, IN' },
 ];
 
-function Team() {
+export function Team() {
   return (
     <section id="team" style={{ padding: '120px 0', background: 'var(--bg)' }}>
       <div className="container">
@@ -243,27 +241,30 @@ function Team() {
   );
 }
 
-function Testimonial() {
+export function Testimonial() {
   const items = [
     {
-      q: 'They cared more about my conversion rate than I did. The site outperforms my old funnel in week one. I just wish I had hired them a year earlier.',
-      a: 'Founder, consumer product',
-      stat: '+212% paid sign-ups',
-      initials: 'AK',
+      q: 'I have worked with a lot of developers before, but working with Bhaskar and his team was super smooth. I was initially worried about shipping my app. They did a great job and stayed calm through every change. Looking forward to working with them long term.',
+      name: 'Rahul Fulara',
+      a: 'Founder, MessageUp',
+      stat: 'App + website shipped',
+      photo: '/images/rahul.png',
       tone: 'a',
     },
     {
-      q: 'I have worked with three agencies before this. Northcraft is the only one that asked me about my audience before showing me a colour palette.',
-      a: 'Creator, education niche',
-      stat: '38% capture rate',
-      initials: 'PR',
+      q: 'Their service was so good. Good wishes from my side to their team. With a little bit of negotiation we got some extra work in too. Looking forward to working with them again.',
+      name: 'Creator · Harish bhatt',
+      a: 'Repeat client',
+      stat: 'Bundle of work shipped',
+      photo: '/images/coding-knowledge.jpeg',
       tone: 'c',
     },
     {
-      q: 'Fast, considered, and the SEO foundation finally let us rank for the queries we always lost to bigger publications.',
-      a: 'Editor, content platform',
-      stat: '+218% organic',
-      initials: 'SM',
+      q: 'Got more than what I expected. Super happy with the results.',
+      name: 'Anna Kowalska',
+      a: 'Therapist · Warsaw, Poland',
+      stat: 'Booking site live',
+      photo: 'https://i.pravatar.cc/240?img=44',
       tone: 'b',
     },
   ];
@@ -278,9 +279,12 @@ function Testimonial() {
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, marginBottom: 14 }}>
           <span className="section-label">07 · What clients say</span>
         </div>
-        <h2 className="serif" style={{ fontSize: 'clamp(36px, 5.4vw, 68px)', lineHeight: 1, letterSpacing: '-0.03em', margin: '0 0 56px 0', maxWidth: '22ch', fontWeight: 360 }}>
+        {/* <h2 className="serif" style={{ fontSize: 'clamp(36px, 5.4vw, 68px)', lineHeight: 1, letterSpacing: '-0.03em', margin: '0 0 56px 0', maxWidth: '22ch', fontWeight: 360 }}>
           Three projects, three words: <span className="serif-italic" style={{ color: 'var(--accent)' }}>quietly</span>, deeply, finished.
-        </h2>
+        </h2> */}
+         <h2 className="serif" style={{ fontSize: 'clamp(36px, 5.4vw, 68px)', lineHeight: 1, letterSpacing: '-0.03em', margin: '0 0 56px 0', maxWidth: '22ch', fontWeight: 360 }}>
+          Loved by founders, creators & teams
+         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="testimonial-grid">
           {items.map((it, i) => (
             <figure
@@ -299,34 +303,46 @@ function Testimonial() {
                 position: 'relative',
               }}
             >
-              {/* Big decorative quote */}
               <div className="serif" aria-hidden="true" style={{ position: 'absolute', top: 14, right: 22, fontSize: 80, lineHeight: 0.8, color: 'var(--accent)', opacity: 0.15, fontStyle: 'italic' }}>
-                "
+                &quot;
               </div>
               <div>
                 <div style={{ display: 'flex', gap: 2, marginBottom: 18 }}>
                   {Array.from({ length: 5 }).map((_, k) => <Star key={k} />)}
                 </div>
                 <blockquote className="serif" style={{ fontSize: 21, lineHeight: 1.3, letterSpacing: '-0.015em', margin: 0, color: 'var(--ink)', fontWeight: 380 }}>
-                  "{it.q}"
+                  &quot;{it.q}&quot;
                 </blockquote>
               </div>
               <figcaption style={{ marginTop: 24, borderTop: '1px solid var(--line-soft)', paddingTop: 16, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
                   <div style={{
-                    width: 36, height: 36, borderRadius: '50%',
+                    width: 40, height: 40, borderRadius: '50%',
                     background: toneColors[it.tone],
-                    color: '#FAF7EE',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontFamily: 'Fraunces, serif', fontSize: 14, fontStyle: 'italic',
+                    overflow: 'hidden',
+                    flexShrink: 0,
+                    border: '2px solid var(--paper)',
+                    boxShadow: '0 0 0 1px var(--line-soft)',
                   }}>
-                    {it.initials}
+                    {it.photo && (
+                      <img
+                        src={it.photo}
+                        alt={it.name}
+                        loading="lazy"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      />
+                    )}
                   </div>
-                  <span className="mono" style={{ fontSize: 10.5, color: 'var(--ink-3)', letterSpacing: '0.12em', textTransform: 'uppercase', maxWidth: '20ch' }}>
-                    {it.a}
-                  </span>
+                  <div style={{ minWidth: 0 }}>
+                    <div className="serif" style={{ fontSize: 14, lineHeight: 1.15, color: 'var(--ink)', fontWeight: 400 }}>
+                      {it.name}
+                    </div>
+                    <div className="mono" style={{ fontSize: 9.5, color: 'var(--muted)', letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: 3 }}>
+                      {it.a}
+                    </div>
+                  </div>
                 </div>
-                <span className="mono" style={{ fontSize: 10.5, color: 'var(--accent)', letterSpacing: '0.12em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+                <span className="mono" style={{ fontSize: 10, color: 'var(--accent)', letterSpacing: '0.12em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
                   {it.stat}
                 </span>
               </figcaption>
@@ -343,5 +359,3 @@ function Testimonial() {
     </section>
   );
 }
-
-Object.assign(window, { Process, Team, Testimonial });

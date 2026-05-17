@@ -1,6 +1,6 @@
-// "Others vs Us" comparison + The Opportunity section
+import { Check, Cross } from './atoms';
 
-function Compare() {
+export function Compare() {
   const others = [
     'Recycled $9 templates everyone has already seen',
     'A page builder bloated with 4MB of unused CSS',
@@ -53,7 +53,6 @@ function Compare() {
             alignItems: 'stretch',
           }}
         >
-          {/* Others */}
           <div
             style={{
               background: 'var(--paper)',
@@ -120,7 +119,6 @@ function Compare() {
             </div>
           </div>
 
-          {/* Us */}
           <div
             style={{
               background: 'var(--ink)',
@@ -200,7 +198,6 @@ function Compare() {
 const DASH      = "system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
 const DASH_MONO = "'Roboto Mono','Courier New',Consolas,monospace";
 
-// Failing audit card — minimal, mobile-friendly
 function FailingScoreReport() {
   const rows = [
     { l: 'SEO',         v: 59, color: '#DC2626' },
@@ -226,7 +223,6 @@ function FailingScoreReport() {
   );
 }
 
-// Winning audit card — same skeleton, all green
 function WinningScoreReport() {
   const rows = [
     { l: 'SEO',         v: 98,  color: '#16A34A' },
@@ -252,7 +248,6 @@ function WinningScoreReport() {
   );
 }
 
-// Shared card shell — clean, readable, mobile-safe
 function AuditCard({ url, score, scoreColor, statusText, statusColor, statusBg, rows, chartTrend, chartTone, chartLabel, chartDelta, chartDeltaColor }) {
   return (
     <div style={{
@@ -263,7 +258,6 @@ function AuditCard({ url, score, scoreColor, statusText, statusColor, statusBg, 
       overflow: 'hidden',
       color: '#1E293B',
     }}>
-      {/* Toolbar */}
       <div style={{ background: '#F8FAFC', borderBottom: '1px solid #E2E8F0', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: 8 }}>
         <div style={{ display: 'flex', gap: 5 }}>
           {['#FF5F57','#FEBC2E','#28C840'].map(c => (
@@ -276,7 +270,6 @@ function AuditCard({ url, score, scoreColor, statusText, statusColor, statusBg, 
       </div>
 
       <div style={{ padding: '14px 16px' }}>
-        {/* Score + status */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
           <div style={{
             width: 44, height: 44, borderRadius: '50%',
@@ -298,7 +291,6 @@ function AuditCard({ url, score, scoreColor, statusText, statusColor, statusBg, 
           </div>
         </div>
 
-        {/* Score rows */}
         <div style={{ display: 'grid', gap: 10 }}>
           {rows.map(r => (
             <div key={r.l} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -315,7 +307,6 @@ function AuditCard({ url, score, scoreColor, statusText, statusColor, statusBg, 
           ))}
         </div>
 
-        {/* Traffic chart */}
         <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid #F1F5F9' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 7 }}>
             <div style={{ fontFamily: DASH_MONO, fontSize: 9, fontWeight: 600, color: '#94A3B8', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
@@ -359,7 +350,7 @@ function MiniLineChart({ trend = 'up', tone = 'green', height = 44 }) {
   );
 }
 
-function MissedOpportunity() {
+export function MissedOpportunity() {
   return (
     <section style={{ background: 'var(--ink)', color: 'var(--paper)', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
       <div aria-hidden="true" style={{
@@ -406,7 +397,6 @@ function MissedOpportunity() {
             </div>
           </div>
 
-          {/* Opportunity card */}
           <div
             style={{
               background: '#1a1814',
@@ -480,5 +470,3 @@ function MiniStat({ label, value }) {
     </div>
   );
 }
-
-Object.assign(window, { Compare, MissedOpportunity });

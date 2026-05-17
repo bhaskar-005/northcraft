@@ -7,7 +7,26 @@
       "Bash(powershell -Command \"\\(Get-Content 'c:/Users/bhask/Downloads/portfoilio/sections/atoms.jsx'\\) -replace '—', ':' | Set-Content 'c:/Users/bhask/Downloads/portfoilio/sections/atoms.jsx' -Encoding utf8\")",
       "Bash(powershell -Command \"Get-Item 'c:/Users/bhask/Downloads/portfoilio/public/messageup/video.mp4' | Select-Object Name, Length; Get-Item 'c:/Users/bhask/Downloads/portfoilio/public/coding-knowledge/video.mp4' | Select-Object Name, Length\")",
       "Bash(Test-Path \"c:/Users/bhask/Downloads/portfoilio/public/coding-knowledge/landing.png\")",
-      "Bash(Test-Path \"c:/Users/bhask/Downloads/portfoilio/public/messageup/video.mp4\")"
+      "Bash(Test-Path \"c:/Users/bhask/Downloads/portfoilio/public/messageup/video.mp4\")",
+      "Bash(powershell -Command \"Get-ChildItem 'c:\\\\Users\\\\bhask\\\\Downloads\\\\portfoilio\\\\public\\\\bizzvarta\\\\ss1' | Select-Object Name, Length; Write-Host '---'; Get-ChildItem 'c:\\\\Users\\\\bhask\\\\Downloads\\\\portfoilio\\\\public\\\\bizzvarta\\\\ss2' | Select-Object Name, Length\")",
+      "Bash(powershell -Command \"Get-ChildItem 'c:\\\\Users\\\\bhask\\\\Downloads\\\\portfoilio\\\\public\\\\bizzvarta' | Select-Object Name, Length, Mode, Extension\")",
+      "PowerShell($b1 = [System.IO.File]::ReadAllBytes\\('c:\\\\Users\\\\bhask\\\\Downloads\\\\portfoilio\\\\public\\\\bizzvarta\\\\ss1'\\) | Select-Object -First 16; $b2 = [System.IO.File]::ReadAllBytes\\('c:\\\\Users\\\\bhask\\\\Downloads\\\\portfoilio\\\\public\\\\bizzvarta\\\\ss2'\\) | Select-Object -First 16; \"ss1 bytes: $\\($b1 -join ','\\)\"; \"ss2 bytes: $\\($b2 -join ','\\)\")",
+      "PowerShell(Rename-Item -Path 'c:\\\\Users\\\\bhask\\\\Downloads\\\\portfoilio\\\\public\\\\chronists\\\\Screenshot 2026-05-17 005243.png' -NewName 'hero.png')",
+      "Bash(python -m http.server 8765 --bind 127.0.0.1)",
+      "Bash(curl -s -o /dev/null -w \"html:%{http_code} \" http://127.0.0.1:8765/)",
+      "Bash(curl -s -o /dev/null -w \"work:%{http_code} \" http://127.0.0.1:8765/sections/work.jsx)",
+      "Bash(curl -s -o /dev/null -w \"atoms:%{http_code} \" http://127.0.0.1:8765/sections/atoms.jsx)",
+      "Bash(curl -s -o /dev/null -w \"ck-landing:%{http_code} \" http://127.0.0.1:8765/public/coding-knowledge/landing.png)",
+      "Bash(curl -s -o /dev/null -w \"ck-video:%{http_code} \" http://127.0.0.1:8765/public/coding-knowledge/video.mp4)",
+      "Bash(curl -s http://127.0.0.1:8765/sections/work.jsx)",
+      "Bash(curl -s -o /dev/null -w \"size: %{size_download} bytes, status: %{http_code}\\\\n\" http://127.0.0.1:8765/sections/work.jsx)",
+      "Bash(node --input-type=module -e ' *)",
+      "Bash(node -e \"try { require\\('@babel/parser'\\); console.log\\('have parser'\\); } catch\\(e\\) { console.log\\('no parser:', e.message\\); }\")",
+      "PowerShell(Get-NetTCPConnection -LocalPort 8765 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess | ForEach-Object { try { Stop-Process -Id $_ -Force } catch {} }; \"stopped\")",
+      "Bash(npx next *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\bhask\\Downloads\\portfoilio\\public\\bizzvarta"
     ]
   }
 }

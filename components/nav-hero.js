@@ -1,13 +1,19 @@
-// Nav + Hero
+'use client';
 
-function Nav() {
-  const [scrolled, setScrolled] = React.useState(false);
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  React.useEffect(() => {
+import { useEffect, useState } from 'react';
+import { NorthcraftMark, BrowserFrame } from './atoms';
+import { NC_WA_LINK, NC_WA_SCHEDULE_LINK } from './contact';
+
+export function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
   return (
     <header
       style={{
@@ -114,10 +120,9 @@ function Nav() {
   );
 }
 
-function Hero() {
+export function Hero() {
   return (
     <section id="top" style={{ position: 'relative', paddingTop: 56, paddingBottom: 96, overflow: 'hidden' }}>
-      {/* Background concentric ornament */}
       <svg
         aria-hidden="true"
         style={{
@@ -138,7 +143,6 @@ function Hero() {
       </svg>
 
       <div className="container" style={{ position: 'relative' }}>
-        {/* Status bar */}
         <div
           className="rise"
           style={{
@@ -156,7 +160,6 @@ function Hero() {
           </span>
         </div>
 
-        {/* Headline */}
         <h1
           className="serif rise"
           style={{
@@ -194,7 +197,6 @@ function Hero() {
           </div>
         </div>
 
-        {/* Hero showcase: drop your hero image or reel here */}
         <div
           className="rise"
           style={{
@@ -206,7 +208,7 @@ function Hero() {
           <BrowserFrame url="codingknowledge.in" aspect="16/8">
             <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
               <video
-                src="/public/coding-knowledge/video.mp4"
+                src="/coding-knowledge/video.mp4"
                 autoPlay muted loop playsInline
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
@@ -231,7 +233,6 @@ function Hero() {
             </div>
           </BrowserFrame>
 
-          {/* Floating stat card */}
           <div
             className="hero-stats"
             style={{
@@ -271,7 +272,6 @@ function Hero() {
             </div>
           </div>
 
-          {/* Contact chip */}
           <a
             href="tel:+917906654584"
             className="hero-chip"
@@ -316,50 +316,7 @@ function Hero() {
   );
 }
 
-// Clean image slot inside the hero browser frame
-function HeroImageSlot() {
-  return (
-    <div style={{
-      position: 'absolute', inset: 0,
-      background:
-        "radial-gradient(circle at 20% 20%, rgba(184,71,42,0.06), transparent 55%), " +
-        "radial-gradient(circle at 80% 80%, rgba(20,17,13,0.05), transparent 55%), " +
-        "linear-gradient(135deg, var(--bg-2) 0%, var(--paper) 100%)",
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      overflow: 'hidden',
-    }}>
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M0 0 L40 40 M40 0 L0 40' stroke='%23DDD4BF' stroke-width='0.3' fill='none'/></svg>\")",
-        opacity: 0.4,
-      }} />
-      <div style={{
-        position: 'relative',
-        textAlign: 'center',
-        padding: '24px 32px',
-        background: 'var(--paper)',
-        border: '1px solid var(--line)',
-        borderRadius: 16,
-        boxShadow: 'var(--shadow-card)',
-        maxWidth: '60%',
-      }}>
-        <div className="mono" style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 10 }}>
-          ↳ hero showcase
-        </div>
-        <div className="serif" style={{ fontSize: 'clamp(20px, 2.2vw, 28px)', letterSpacing: '-0.02em', color: 'var(--ink)', lineHeight: 1.15, fontWeight: 380 }}>
-          Drop your best project<br />
-          <span className="serif-italic" style={{ color: 'var(--accent)' }}>screenshot or reel</span> here.
-        </div>
-        <div className="mono" style={{ fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--muted)', marginTop: 12 }}>
-          recommended · 1600 × 900 · webp or mp4 loop
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Marquee of capabilities (no fake client URLs)
-function Marquee() {
+export function Marquee() {
   const items = [
     'Bespoke landing pages',
     'Brand systems',
@@ -401,5 +358,3 @@ function Marquee() {
     </div>
   );
 }
-
-Object.assign(window, { Nav, Hero, Marquee, HeroImageSlot });

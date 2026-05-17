@@ -1,4 +1,8 @@
-// Pricing + FAQ
+'use client';
+
+import { useState } from 'react';
+import { Check, WhatsAppGlyph } from './atoms';
+import { NC_WA_LINK, NC_EMAIL, NC_PHONE_TEL, NC_PHONE_DISPLAY } from './contact';
 
 const TIERS = [
   {
@@ -53,7 +57,7 @@ const TIERS = [
   },
 ];
 
-function Pricing() {
+export function Pricing() {
   return (
     <section id="pricing" style={{ padding: '120px 0', background: 'var(--bg)' }}>
       <div className="container">
@@ -81,7 +85,7 @@ function Pricing() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="pricing-grid">
-          {TIERS.map((t, i) => (
+          {TIERS.map((t) => (
             <article
               key={t.name}
               style={{
@@ -126,9 +130,6 @@ function Pricing() {
               </p>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 6 }}>
                 <span className="serif" style={{ fontSize: 52, letterSpacing: '-0.03em', lineHeight: 1, fontWeight: 360 }}>{t.price}</span>
-                {t.priceSuffix && (
-                  <span style={{ fontSize: 16, color: t.highlight ? '#C9C0B0' : 'var(--ink-3)' }}>{t.priceSuffix}</span>
-                )}
               </div>
               <div className="mono" style={{ fontSize: 10.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: t.highlight ? '#8A8175' : 'var(--muted)', marginBottom: 26 }}>
                 {t.note}
@@ -228,8 +229,8 @@ const FAQS = [
   },
 ];
 
-function FAQ() {
-  const [open, setOpen] = React.useState(0);
+export function FAQ() {
+  const [open, setOpen] = useState(0);
   return (
     <section id="faq" style={{ padding: '120px 0', background: 'var(--bg)' }}>
       <div className="container">
@@ -256,7 +257,7 @@ function FAQ() {
               <a href={`mailto:${NC_EMAIL}`} className="btn btn-ghost btn-arrow">
                 {NC_EMAIL}
               </a>
-              <a href={`tel:+${NC_PHONE}`} className="btn btn-ghost btn-arrow">
+              <a href={`tel:${NC_PHONE_TEL}`} className="btn btn-ghost btn-arrow">
                 {NC_PHONE_DISPLAY}
               </a>
             </div>
@@ -334,5 +335,3 @@ function FAQ() {
     </section>
   );
 }
-
-Object.assign(window, { Pricing, FAQ });
