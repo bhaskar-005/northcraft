@@ -1,4 +1,7 @@
+import Script from 'next/script';
 import './globals.css';
+
+const GA_ID = 'G-VY1F07BVY0';
 
 export const metadata = {
   metadataBase: new URL('https://northcraft.chronists.com/'),
@@ -126,6 +129,18 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
         <a
           href="#top"
           style={{ position: 'absolute', left: '-9999px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}
