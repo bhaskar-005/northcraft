@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Check, WhatsAppGlyph } from './atoms';
 import { NC_WA_LINK, NC_EMAIL, NC_PHONE_TEL, NC_PHONE_DISPLAY } from './contact';
+import { track } from './analytics';
 
 const TIERS = [
   {
@@ -153,6 +154,7 @@ export function Pricing() {
                   target="_blank"
                   rel="noreferrer"
                   className="btn btn-arrow"
+                  onClick={() => track('pricing_start', { tier: t.name, location: 'pricing' })}
                   style={{
                     background: t.highlight ? 'var(--paper)' : 'var(--ink)',
                     color: t.highlight ? 'var(--ink)' : 'var(--paper)',
@@ -188,7 +190,15 @@ export function Pricing() {
               For custom builds beyond ₹50,000, multi-product surfaces, or longer engagements: talk to us. We will quote it together after a quick call.
             </div>
           </div>
-          <a href={NC_WA_LINK} target="_blank" rel="noreferrer" className="btn btn-primary btn-arrow">Talk to us</a>
+          <a
+            href={NC_WA_LINK}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary btn-arrow"
+            onClick={() => track('cta_click', { id: 'pricing_custom', label: 'Talk to us', location: 'pricing' })}
+          >
+            Talk to us
+          </a>
         </div>
       </div>
 
@@ -249,15 +259,24 @@ export function FAQ() {
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-arrow"
+                onClick={() => track('cta_click', { id: 'faq_wa', label: 'Chat on WhatsApp', location: 'faq' })}
                 style={{ background: '#25D366', color: '#0B3D2E', border: '1px solid #25D366', display: 'inline-flex', alignItems: 'center', gap: 10 }}
               >
                 <WhatsAppGlyph size={14} color="#0B3D2E" />
                 Chat on WhatsApp
               </a>
-              <a href={`mailto:${NC_EMAIL}`} className="btn btn-ghost btn-arrow">
+              <a
+                href={`mailto:${NC_EMAIL}`}
+                className="btn btn-ghost btn-arrow"
+                onClick={() => track('cta_click', { id: 'faq_email', label: 'Email', location: 'faq' })}
+              >
                 {NC_EMAIL}
               </a>
-              <a href={`tel:${NC_PHONE_TEL}`} className="btn btn-ghost btn-arrow">
+              <a
+                href={`tel:${NC_PHONE_TEL}`}
+                className="btn btn-ghost btn-arrow"
+                onClick={() => track('cta_click', { id: 'faq_phone', label: 'Phone', location: 'faq' })}
+              >
                 {NC_PHONE_DISPLAY}
               </a>
             </div>
@@ -269,7 +288,11 @@ export function FAQ() {
               return (
                 <div key={i} style={{ borderBottom: '1px solid var(--line)' }}>
                   <button
-                    onClick={() => setOpen(isOpen ? -1 : i)}
+                    onClick={() => {
+                      const next = isOpen ? -1 : i;
+                      setOpen(next);
+                      if (!isOpen) track('faq_open', { q_index: i });
+                    }}
                     aria-expanded={isOpen}
                     style={{
                       width: '100%',

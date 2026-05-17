@@ -5,6 +5,7 @@ import { Process, Team, Testimonial } from '@/components/process-team';
 import { Pricing, FAQ } from '@/components/pricing-faq';
 import { CTA, Footer } from '@/components/footer';
 import { FloatingWhatsApp } from '@/components/atoms';
+import { AnalyticsObserver } from '@/components/analytics';
 
 export default function Page() {
   return (
@@ -23,6 +24,7 @@ export default function Page() {
       <CTA />
       <Footer />
       <FloatingWhatsApp />
+      <AnalyticsObserver />
     </>
   );
 }

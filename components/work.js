@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { NC_WA_LINK } from './contact';
+import { track } from './analytics';
 
 const PROJECTS = [
   {
@@ -181,7 +182,13 @@ export function Work() {
         </div>
 
         <div style={{ marginTop: 72, display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
-          <a href={NC_WA_LINK} target="_blank" rel="noreferrer" className="btn btn-primary btn-arrow">
+          <a
+            href={NC_WA_LINK}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary btn-arrow"
+            onClick={() => track('cta_click', { id: 'work_start', label: 'Start a project like one of these', location: 'work' })}
+          >
             Start a project like one of these
           </a>
         </div>
@@ -328,6 +335,7 @@ function CaseHeader({ p, isDev }) {
             target="_blank"
             rel="noreferrer"
             className="mono"
+            onClick={() => track('outbound_click', { project: p.name, target: 'playstore', location: 'case_header' })}
             style={{
               fontSize: 10.5,
               letterSpacing: '0.12em',
@@ -354,6 +362,7 @@ function CaseHeader({ p, isDev }) {
             target="_blank"
             rel="noreferrer"
             className="mono"
+            onClick={() => track('outbound_click', { project: p.name, target: p.status === 'dev' ? 'waitlist' : 'website', location: 'case_header' })}
             style={{
               fontSize: 11,
               letterSpacing: '0.14em',
@@ -896,6 +905,7 @@ function PhoneDualPlatformBar({ p }) {
         target="_blank"
         rel="noreferrer"
         className="dual-tile"
+        onClick={() => track('outbound_click', { project: p.name, target: 'playstore', location: 'dual_bar' })}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -974,6 +984,7 @@ function PhoneDualPlatformBar({ p }) {
         target="_blank"
         rel="noreferrer"
         className="dual-tile"
+        onClick={() => track('outbound_click', { project: p.name, target: 'website', location: 'dual_bar' })}
         style={{
           display: 'flex',
           alignItems: 'center',

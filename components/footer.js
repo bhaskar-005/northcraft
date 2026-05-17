@@ -1,3 +1,5 @@
+'use client';
+
 import { NorthcraftMark, WhatsAppGlyph } from './atoms';
 import {
   NC_EMAIL,
@@ -9,6 +11,7 @@ import {
   NC_WA_LINK,
   NC_WA_SCHEDULE_LINK,
 } from './contact';
+import { track } from './analytics';
 
 export function CTA() {
   return (
@@ -62,6 +65,7 @@ export function CTA() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-arrow"
+            onClick={() => track('cta_click', { id: 'final_wa', label: 'Get in touch on WhatsApp', location: 'cta' })}
             style={{ background: '#25D366', color: '#0B3D2E', padding: '18px 28px', fontSize: 15, border: '1px solid #25D366', display: 'inline-flex', alignItems: 'center', gap: 10 }}
           >
             <WhatsAppGlyph size={16} color="#0B3D2E" />
@@ -72,6 +76,7 @@ export function CTA() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-arrow"
+            onClick={() => track('cta_click', { id: 'final_schedule', label: 'Schedule a meeting', location: 'cta' })}
             style={{ background: 'transparent', color: 'var(--paper)', border: '1px solid #3a342c', padding: '18px 28px', fontSize: 15 }}
           >
             Schedule a meeting
@@ -79,6 +84,7 @@ export function CTA() {
           <a
             href={`mailto:${NC_EMAIL}`}
             className="btn"
+            onClick={() => track('cta_click', { id: 'final_email', label: 'Email instead', location: 'cta' })}
             style={{ background: 'var(--paper)', color: 'var(--ink)', padding: '18px 28px', fontSize: 15 }}
           >
             Email instead

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { NorthcraftMark, BrowserFrame } from './atoms';
 import { NC_WA_LINK, NC_WA_SCHEDULE_LINK } from './contact';
+import { track } from './analytics';
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -69,7 +70,14 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <a href={NC_WA_LINK} target="_blank" rel="noreferrer" className="btn btn-primary btn-arrow" style={{ padding: '10px 18px', fontSize: 14 }}>
+        <a
+          href={NC_WA_LINK}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-primary btn-arrow"
+          style={{ padding: '10px 18px', fontSize: 14 }}
+          onClick={() => track('cta_click', { id: 'nav_wa', label: 'Get in touch', location: 'nav' })}
+        >
           Get in touch
         </a>
         <button
@@ -192,8 +200,24 @@ export function Hero() {
             for creators, coaches and service-led businesses. Plans start at <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>₹8,000</strong>, every pixel engineered to earn back its cost.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-start', flexWrap: 'wrap' }}>
-            <a href={NC_WA_LINK} target="_blank" rel="noreferrer" className="btn btn-primary btn-arrow">Get in touch</a>
-            <a href={NC_WA_SCHEDULE_LINK} target="_blank" rel="noreferrer" className="btn btn-ghost btn-arrow">Schedule a meeting</a>
+            <a
+              href={NC_WA_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary btn-arrow"
+              onClick={() => track('cta_click', { id: 'hero_wa', label: 'Get in touch', location: 'hero' })}
+            >
+              Get in touch
+            </a>
+            <a
+              href={NC_WA_SCHEDULE_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-ghost btn-arrow"
+              onClick={() => track('cta_click', { id: 'hero_schedule', label: 'Schedule a meeting', location: 'hero' })}
+            >
+              Schedule a meeting
+            </a>
           </div>
         </div>
 

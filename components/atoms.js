@@ -7,6 +7,7 @@ import {
   NC_WA_TEXT,
   NC_DOMAIN,
 } from './contact';
+import { track } from './analytics';
 
 export const NorthcraftMark = ({ size = 28, color }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -215,7 +216,10 @@ export function FloatingWhatsApp() {
               href={NC_WA_LINK}
               target="_blank"
               rel="noreferrer"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                track('cta_click', { id: 'wa_floating_send', label: 'Send on WhatsApp', location: 'floating_wa' });
+                setOpen(false);
+              }}
               style={{
                 marginTop: 14,
                 display: 'flex',
@@ -242,7 +246,10 @@ export function FloatingWhatsApp() {
       )}
 
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={() => {
+          if (!open) track('wa_floating_open');
+          setOpen(o => !o);
+        }}
         aria-label={open ? 'Close WhatsApp chat' : 'Chat on WhatsApp'}
         aria-expanded={open}
         style={{
