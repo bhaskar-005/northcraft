@@ -23,7 +23,8 @@
       "Bash(node --input-type=module -e ' *)",
       "Bash(node -e \"try { require\\('@babel/parser'\\); console.log\\('have parser'\\); } catch\\(e\\) { console.log\\('no parser:', e.message\\); }\")",
       "PowerShell(Get-NetTCPConnection -LocalPort 8765 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess | ForEach-Object { try { Stop-Process -Id $_ -Force } catch {} }; \"stopped\")",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(git commit -m ' *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\bhask\\Downloads\\portfoilio\\public\\bizzvarta"
