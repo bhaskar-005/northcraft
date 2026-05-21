@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { NorthcraftMark, BrowserFrame } from './atoms';
 import { NC_WA_LINK, NC_WA_SCHEDULE_LINK } from './contact';
 import { track } from './analytics';
-import { HeroCircles } from './hero-circles';
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -132,7 +131,24 @@ export function Nav() {
 export function Hero() {
   return (
     <section id="top" style={{ position: 'relative', paddingTop: 56, paddingBottom: 96, overflow: 'hidden' }}>
-      <HeroCircles />
+      <svg
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          right: '-12%',
+          top: '-8%',
+          opacity: 0.05,
+          pointerEvents: 'none',
+        }}
+        width="780"
+        height="780"
+        viewBox="0 0 640 640"
+        fill="none"
+      >
+        {[319, 260, 200, 140, 80, 30].map(r => (
+          <circle key={r} cx="320" cy="320" r={r} stroke="#14110D" strokeWidth="1" />
+        ))}
+      </svg>
 
       <div className="container" style={{ position: 'relative' }}>
         <div
