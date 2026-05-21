@@ -270,10 +270,14 @@ function ProjectCase({ project: p }) {
           .case-meta-grid { grid-template-columns: 1fr !important; gap: 22px !important; }
           .creator-hero-grid { grid-template-columns: 1fr !important; }
           .creator-hero-stats { border-left: 0 !important; border-top: 1px solid var(--line-soft) !important; padding-left: 0 !important; padding-top: 18px !important; margin-top: 4px !important; }
-          .phone-row { padding: 16px 8px 28px !important; }
           .ck-services-grid { grid-template-columns: 1fr !important; }
-          .case-pad { padding: 22px !important; }
-          .case-head { padding: 16px 22px !important; }
+          .case-pad { padding: 16px !important; }
+          .case-head { padding: 12px 16px !important; flex-wrap: wrap !important; gap: 10px !important; }
+          .case-meta-grid { padding: 22px 18px !important; }
+        }
+        @media (max-width: 640px) {
+          .phone-row { padding: 20px 0 24px !important; }
+          .case-pad { padding: 12px !important; }
         }
         @keyframes scrollLong {
           0%   { transform: translateY(0); }
@@ -303,25 +307,26 @@ function CaseHeader({ p, isDev }) {
         gap: 12,
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', minWidth: 0 }}>
         <span
           className="mono"
           style={{
-            fontSize: 11,
-            letterSpacing: '0.2em',
+            fontSize: 10,
+            letterSpacing: '0.18em',
             textTransform: 'uppercase',
             color: isDev ? '#E8C9B5' : 'var(--accent)',
+            flexShrink: 0,
           }}
         >
           Case {p.n}
         </span>
+        <span style={{ color: isDev ? '#3a342c' : 'var(--line)', fontSize: 12, flexShrink: 0 }}>·</span>
         <span
-          className="mono"
           style={{
-            fontSize: 11,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: isDev ? '#8A8175' : 'var(--muted)',
+            fontSize: 13,
+            color: isDev ? '#8A8175' : 'var(--ink-3)',
+            letterSpacing: '0.01em',
+            lineHeight: 1.2,
           }}
         >
           {p.tag}
@@ -334,25 +339,21 @@ function CaseHeader({ p, isDev }) {
             href={p.playStoreHref}
             target="_blank"
             rel="noreferrer"
-            className="mono"
             onClick={() => track('outbound_click', { project: p.name, target: 'playstore', location: 'case_header' })}
             style={{
-              fontSize: 10.5,
-              letterSpacing: '0.12em',
-              // textTransform: 'uppercase',
+              fontSize: 12.5,
+              fontWeight: 500,
               color: '#2F4A2A',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: 6,
+              gap: 5,
               background: 'rgba(47,74,42,0.10)',
-              padding: '5px 12px',
+              padding: '6px 14px',
               borderRadius: 999,
               border: '1px solid rgba(47,74,42,0.22)',
+              textDecoration: 'none',
             }}
           >
-            {/* <svg width="12" height="12" viewBox="0 0 24 24" fill="#2F4A2A" aria-hidden="true">
-              <path d="M3.18 23.76c-.34-.2-.53-.56-.53-.96V1.2c0-.4.19-.76.53-.96l12.43 11.76L3.18 23.76zm13.31-11.33L4.12.8l10.67 6.15-5.24 5.4 6.94 0zM4.12 23.2l12.31-6.67-6.94-.01 5.24-5.4L4.12 23.2zm14.34-9.84-2.1-1.21.01-2.3 2.09-1.21c.34.53.54 1.15.54 1.86 0 .71-.2 1.33-.54 1.86z" />
-            </svg> */}
             Google Play ↗
           </a>
         )}
@@ -361,20 +362,19 @@ function CaseHeader({ p, isDev }) {
             href={p.href}
             target="_blank"
             rel="noreferrer"
-            className="mono"
             onClick={() => track('outbound_click', { project: p.name, target: p.status === 'dev' ? 'waitlist' : 'website', location: 'case_header' })}
             style={{
-              fontSize: 11,
-              letterSpacing: '0.14em',
-              // textTransform: 'uppercase',
+              fontSize: 12.5,
+              fontWeight: 500,
               color: isDev ? '#F4EDDE' : 'var(--ink)',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: 8,
+              gap: 6,
               background: isDev ? '#1a1814' : 'var(--paper)',
               padding: '6px 14px',
               borderRadius: 999,
               border: `1px solid ${isDev ? '#2a241d' : 'var(--line)'}`,
+              textDecoration: 'none',
             }}
           >
             {p.status === 'dev' ? 'See waitlist' : `Visit ${p.url}`} <span aria-hidden="true">↗</span>
@@ -433,7 +433,7 @@ function CreatorHeroBar({ p }) {
           />
         </a>
         <div>
-          <div
+          {/* <div
             className="mono"
             style={{
               fontSize: 10.5,
@@ -444,7 +444,7 @@ function CreatorHeroBar({ p }) {
             }}
           >
             This creator chose us
-          </div>
+          </div> */}
           <div
             className="serif"
             style={{
@@ -1056,26 +1056,26 @@ function FounderQuoteBar({ p }) {
     <div
       className="founder-bar"
       style={{
-        padding: '40px 36px',
+        padding: '28px 32px',
         background: 'linear-gradient(180deg,#1f1b15,#14110D)',
         color: '#F4EDDE',
         borderTop: '1px solid #2a241d',
         borderBottom: '1px solid #2a241d',
         display: 'grid',
         gridTemplateColumns: 'auto 1fr',
-        gap: 28,
+        gap: 22,
         alignItems: 'center',
       }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, minWidth: 120 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, minWidth: 96 }}>
         <div
           style={{
-            width: 88,
-            height: 88,
+            width: 68,
+            height: 68,
             borderRadius: '50%',
-            padding: 3,
+            padding: 2,
             background: 'linear-gradient(135deg,#B8472A 0%, #E8C9B5 50%, #8C3318 100%)',
-            boxShadow: '0 10px 26px -8px rgba(184,71,42,0.45)',
+            boxShadow: '0 8px 20px -6px rgba(184,71,42,0.4)',
           }}
         >
           <img
@@ -1094,17 +1094,15 @@ function FounderQuoteBar({ p }) {
           />
         </div>
         <div style={{ textAlign: 'center' }}>
-          <div className="serif" style={{ fontSize: 15, lineHeight: 1.1, color: '#F4EDDE', fontWeight: 400 }}>
+          <div className="serif" style={{ fontSize: 13.5, lineHeight: 1.1, color: '#F4EDDE', fontWeight: 400 }}>
             {f.name}
           </div>
           <div
-            className="mono"
             style={{
-              fontSize: 9.5,
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
+              fontSize: 11,
               color: '#8A8175',
-              marginTop: 4,
+              marginTop: 3,
+              letterSpacing: '0.01em',
             }}
           >
             {f.role}
@@ -1114,28 +1112,10 @@ function FounderQuoteBar({ p }) {
 
       <div style={{ position: 'relative' }}>
         <div
-          className="serif"
-          aria-hidden="true"
           style={{
-            position: 'absolute',
-            top: -18,
-            left: -8,
-            fontSize: 90,
-            lineHeight: 0.8,
-            color: '#E8C9B5',
-            opacity: 0.18,
-            fontStyle: 'italic',
-          }}
-        >
-          "
-        </div>
-        <div
-          className="mono"
-          style={{
-            fontSize: 10,
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
-            color: '#E8C9B5',
+            fontSize: 11,
+            color: '#8A8175',
+            letterSpacing: '0.04em',
             marginBottom: 10,
           }}
         >
@@ -1145,21 +1125,23 @@ function FounderQuoteBar({ p }) {
           className="serif"
           style={{
             margin: 0,
-            fontSize: 'clamp(18px, 2vw, 24px)',
-            lineHeight: 1.45,
-            letterSpacing: '-0.01em',
-            color: '#F4EDDE',
+            fontSize: 'clamp(13px, 1.4vw, 16px)',
+            lineHeight: 1.6,
+            letterSpacing: '-0.005em',
+            color: '#C9C0B0',
             fontWeight: 380,
             maxWidth: '62ch',
           }}
         >
-          "{f.quote}"
+          &ldquo;{f.quote}&rdquo;
         </blockquote>
       </div>
 
       <style>{`
         @media (max-width: 720px) {
-          .founder-bar { grid-template-columns: 1fr !important; padding: 28px 22px !important; gap: 20px !important; }
+          .founder-bar { grid-template-columns: 1fr !important; padding: 22px 18px !important; gap: 16px !important; }
+          .founder-bar > div:first-child { flex-direction: row !important; align-items: center !important; text-align: left !important; gap: 14px !important; min-width: 0 !important; }
+          .founder-bar > div:first-child > div:last-child { text-align: left !important; }
         }
       `}</style>
     </div>
@@ -1195,24 +1177,22 @@ function CoreFeatures({ p }) {
 
   return (
     <div
+      className="core-features-bar"
       style={{
-        padding: '22px 32px',
+        padding: '20px 32px',
         background: 'var(--bg-2)',
         borderBottom: '1px solid var(--line-soft)',
-        display: 'flex',
-        alignItems: 'center',
-        gap: 22,
-        flexWrap: 'wrap',
       }}
     >
       <span
         className="mono"
         style={{
-          fontSize: 10,
-          letterSpacing: '0.2em',
+          fontSize: 9.5,
+          letterSpacing: '0.18em',
           textTransform: 'uppercase',
           color: 'var(--muted)',
-          flexShrink: 0,
+          display: 'block',
+          marginBottom: 14,
         }}
       >
         Core features
@@ -1222,9 +1202,7 @@ function CoreFeatures({ p }) {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '8px 24px',
-          flex: 1,
-          minWidth: 0,
+          gap: '10px 20px',
         }}
       >
         {p.coreFeatures.map((f, i) => (
@@ -1247,7 +1225,11 @@ function CoreFeatures({ p }) {
         @media (max-width: 980px) {
           .core-features-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
-        @media (max-width: 560px) {
+        @media (max-width: 640px) {
+          .core-features-bar { padding: 16px !important; }
+          .core-features-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px 14px !important; }
+        }
+        @media (max-width: 400px) {
           .core-features-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
@@ -1768,23 +1750,21 @@ function CaseMeta({ p, isDev }) {
                 <span
                   className="serif"
                   style={{
-                    fontSize: 30,
+                    fontSize: 28,
                     lineHeight: 1,
                     color: i === 0 ? (isDev ? '#E8C9B5' : 'var(--accent)') : isDev ? '#F4EDDE' : 'var(--ink)',
                     letterSpacing: '-0.02em',
                     fontWeight: 380,
-                    minWidth: 80,
+                    flexShrink: 0,
                   }}
                 >
                   {s.a}
                 </span>
                 <span
-                  className="mono"
                   style={{
-                    fontSize: 10.5,
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
+                    fontSize: 12.5,
                     color: isDev ? '#8A8175' : 'var(--muted)',
+                    lineHeight: 1.35,
                   }}
                 >
                   {s.b}

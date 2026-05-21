@@ -2,51 +2,51 @@
 
 import { useState } from 'react';
 import { Check, WhatsAppGlyph } from './atoms';
-import { NC_WA_LINK, NC_EMAIL, NC_PHONE_TEL, NC_PHONE_DISPLAY } from './contact';
+import { NC_WA_LINK, NC_EMAIL, NC_PHONE_TEL, NC_PHONE_DISPLAY, NC_CONTACT_FORM } from './contact';
 import { track } from './analytics';
 
 const TIERS = [
   {
-    name: 'Starter',
+    name: 'Landing Page',
     sub: 'For a focused, fast launch',
-    price: '₹8,000',
-    note: 'one-time · delivered in 10 days',
+    badge: 'From $99 / ₹8K',
+    note: 'custom quote · delivered in ~10 days',
     highlight: false,
     inc: [
       '3 to 4 pages (home, about, services, contact)',
       'Mobile-first responsive design',
       'On-page SEO + meta tags',
       'Connected to your domain + email',
-      '1 round of revisions',
+      '2 rounds of revisions',
       'Basic analytics setup',
     ],
-    bestFor: 'Best for small businesses, coaches, a single offer',
+    bestFor: 'Best for small businesses, freelancers, a single offer',
   },
   {
-    name: 'Studio',
-    sub: 'For service businesses + product sites',
-    price: '₹30,000',
-    note: 'one-time · delivered in 18 days',
+    name: 'Full Website',
+    sub: 'For businesses that need more',
+    badge: 'From $350 / ₹30K',
+    note: 'custom quote · delivered in ~18 days',
     highlight: true,
     inc: [
       'Up to 8 pages with custom layouts',
-      'Audience research + offer brief',
+      'Competitor research + offer brief',
       'Custom design system + brand polish',
       'Full SEO stack: schema, sitemap, content briefs',
       'Analytics + heatmap setup',
       'Booking / lead capture integrations',
       '21 days of free iteration',
     ],
-    bestFor: 'Best for service businesses, agencies, B2B',
+    bestFor: 'Best for service businesses, agencies, growing teams',
   },
   {
-    name: 'SaaS MVP',
+    name: 'Product MVP',
     sub: 'Full product, end to end',
-    price: '₹50,000',
-    note: 'one-time · v1 in 25 to 30 days',
+    badge: 'From $600 / ₹50K',
+    note: 'custom quote · v1 in 25–30 days',
     highlight: false,
     inc: [
-      'Complete SaaS MVP, end to end',
+      'Complete product MVP, end to end',
       'Auth, dashboard, payments, core flows',
       'Marketing site + product surface together',
       'Database + backend wired up',
@@ -63,7 +63,7 @@ export function Pricing() {
     <section id="pricing" style={{ padding: '120px 0', background: 'var(--bg)' }}>
       <div className="container">
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, marginBottom: 14 }}>
-          <span className="section-label">08 · Plans</span>
+          <span className="section-label">08 · What we build</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 24, marginBottom: 56 }}>
           <h2
@@ -77,11 +77,12 @@ export function Pricing() {
               fontWeight: 360,
             }}
           >
-            Honest pricing. <span className="serif-italic" style={{ color: 'var(--accent)' }}>Pick</span> your plan.
+            What we build. <span className="serif-italic" style={{ color: 'var(--accent)' }}>Priced</span> for you.
           </h2>
-          <p style={{ fontSize: 16, color: 'var(--ink-3)', maxWidth: '38ch', margin: 0, lineHeight: 1.6 }}>
-            Three flat-fee plans for most use cases. Building something larger?
-            <strong style={{ color: 'var(--ink)', fontWeight: 600 }}> Talk to us</strong> and we will scope it together.
+          <p style={{ fontSize: 16, color: 'var(--ink-3)', maxWidth: '40ch', margin: 0, lineHeight: 1.6 }}>
+            Every project is scoped individually — you only pay for what you actually need.
+            Prices shown are starting points in both <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>USD ($) and INR (₹)</strong>.{' '}
+            Start with a free 45-min call and we will give you a straight quote.
           </p>
         </div>
 
@@ -129,8 +130,21 @@ export function Pricing() {
               <p style={{ fontSize: 13.5, color: t.highlight ? '#C9C0B0' : 'var(--ink-3)', margin: '0 0 26px 0' }}>
                 {t.sub}
               </p>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 6 }}>
-                <span className="serif" style={{ fontSize: 52, letterSpacing: '-0.03em', lineHeight: 1, fontWeight: 360 }}>{t.price}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, flexWrap: 'wrap' }}>
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 13,
+                    letterSpacing: '0.06em',
+                    color: t.highlight ? 'var(--accent-soft)' : 'var(--accent)',
+                    background: t.highlight ? 'rgba(232,201,181,0.1)' : 'rgba(184,71,42,0.08)',
+                    border: `1px solid ${t.highlight ? 'rgba(232,201,181,0.2)' : 'rgba(184,71,42,0.18)'}`,
+                    padding: '6px 14px',
+                    borderRadius: 999,
+                  }}
+                >
+                  {t.badge}
+                </span>
               </div>
               <div className="mono" style={{ fontSize: 10.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: t.highlight ? '#8A8175' : 'var(--muted)', marginBottom: 26 }}>
                 {t.note}
@@ -161,7 +175,7 @@ export function Pricing() {
                     width: '100%',
                   }}
                 >
-                  Start with {t.name}
+                  Discuss this project
                 </a>
               </div>
             </article>
@@ -184,10 +198,10 @@ export function Pricing() {
         >
           <div>
             <div className="mono" style={{ fontSize: 10.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>
-              Need something bigger?
+              Not sure which fits you?
             </div>
             <div className="serif" style={{ fontSize: 22, color: 'var(--ink-2)', maxWidth: '52ch', letterSpacing: '-0.015em', lineHeight: 1.35, fontWeight: 380 }}>
-              For custom builds beyond ₹50,000, multi-product surfaces, or longer engagements: talk to us. We will quote it together after a quick call.
+              Tell us what you are building and we will scope it honestly. No sales pressure — just a straight conversation about what makes sense.
             </div>
           </div>
           <a
@@ -214,28 +228,32 @@ export function Pricing() {
 
 const FAQS = [
   {
+    q: 'Who do you work with?',
+    a: 'Anyone with something worth building online. Small business owners, startup founders, freelancers, consultants, coaches, local businesses, creators — if you need a landing page, product site or MVP built right, we are the right studio. Many of our clients have never worked with a web studio before. That is fine. We handle everything.',
+  },
+  {
     q: 'Why not just use a Webflow / Framer template?',
-    a: 'Sometimes a template is the right call and we will tell you that on the discovery call. But templates are built for the average of everyone. The real difference is research: understanding how your audience monetises, then designing UI, UX and SEO around that. Whether the underlying tooling is custom code, a template, or a page builder is a means to an end.',
+    a: 'Sometimes a template is the right call and we will tell you that on the discovery call. But templates are built for the average of everyone. The real difference is research: understanding how your customers decide to buy, then designing UI, UX and SEO around that. Whether the underlying tooling is custom code, a template, or a page builder is a means to an end.',
   },
   {
     q: 'How is this different from hiring a freelancer?',
-    a: 'You get four specialists instead of one generalist juggling twelve clients. A designer, a developer, an SEO strategist and a producer, for less than the cost of one senior freelancer in most cities. We take one project at a time, so we are actually present for yours.',
+    a: 'You get four specialists instead of one generalist juggling twelve clients. A designer, a developer, an SEO strategist and a producer. We take one project at a time, so we are actually present for yours — not sending updates once a week from across five other jobs.',
   },
   {
-    q: 'Do you work with creators / influencers?',
-    a: 'It is half of what we do. If you have between 10k and 500k followers and have never built a real product surface, we are probably the best ROI you can make this year.',
-  },
-  {
-    q: 'What if I don’t have brand assets or copy yet?',
-    a: 'Most of our clients do not. We write the copy, design the brand, and ship the site. You bring the audience and the offer; we bring everything else.',
+    q: "What if I don't have brand assets or copy yet?",
+    a: 'Most of our clients do not. We write the copy, design the brand, and ship the site. You bring the idea and the offer; we bring everything else.',
   },
   {
     q: 'How long does a project actually take?',
-    a: 'Starter: 10 days. Studio: 18 days. SaaS MVP: 25 to 30 days. We have shipped a v1 in 5 days when a launch demanded it, but it costs more and we will only do it if your offer is already locked.',
+    a: 'Landing page: ~10 days. Full website: ~18 days. Product MVP: 25 to 30 days. We have shipped a v1 in 5 days when a launch demanded it, but we will only do that if the offer is already fully locked.',
+  },
+  {
+    q: 'Do you work with international clients?',
+    a: 'Yes. We work with clients worldwide. Prices are quoted in both USD and INR. If you are outside India and do not use WhatsApp, use our contact form to reach us — we reply the same business day.',
   },
   {
     q: 'Do you do ongoing maintenance?',
-    a: 'Yes. Every project ships with 14 to 30 days of free iteration after launch. After that we offer a flat care plan from ₹3,000 per month, scaling up by plan.',
+    a: 'Yes. Every project ships with 14 to 30 days of free iteration after launch. After that we offer a flat care plan — scope and pricing discussed on the discovery call.',
   },
 ];
 
@@ -278,6 +296,15 @@ export function FAQ() {
                 onClick={() => track('cta_click', { id: 'faq_phone', label: 'Phone', location: 'faq' })}
               >
                 {NC_PHONE_DISPLAY}
+              </a>
+              <a
+                href={NC_CONTACT_FORM}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-ghost btn-arrow"
+                onClick={() => track('cta_click', { id: 'faq_form', label: 'Contact form', location: 'faq' })}
+              >
+                Contact form (no WhatsApp?)
               </a>
             </div>
           </div>

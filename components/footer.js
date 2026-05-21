@@ -1,6 +1,7 @@
 'use client';
 
 import { NorthcraftMark, WhatsAppGlyph } from './atoms';
+import { CTACircles } from './hero-circles';
 import {
   NC_EMAIL,
   NC_PHONE_TEL,
@@ -10,24 +11,14 @@ import {
   NC_LOCATION,
   NC_WA_LINK,
   NC_WA_SCHEDULE_LINK,
+  NC_CONTACT_FORM,
 } from './contact';
 import { track } from './analytics';
 
 export function CTA() {
   return (
     <section id="contact" style={{ padding: '140px 0 120px', background: 'var(--ink)', color: 'var(--paper)', position: 'relative', overflow: 'hidden' }}>
-      <svg
-        aria-hidden="true"
-        style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', opacity: 0.05, pointerEvents: 'none' }}
-        width="900"
-        height="900"
-        viewBox="0 0 32 32"
-      >
-        <circle cx="16" cy="16" r="15.5" stroke="#F4EDDE" strokeWidth="0.35" fill="none" />
-        <circle cx="16" cy="16" r="11" stroke="#F4EDDE" strokeWidth="0.3" fill="none" />
-        <circle cx="16" cy="16" r="6" stroke="#F4EDDE" strokeWidth="0.25" fill="none" />
-        <circle cx="16" cy="16" r="2.6" fill="#B8472A" />
-      </svg>
+      <CTACircles />
 
       <div aria-hidden="true" style={{
         position: 'absolute', right: '-15%', bottom: '-15%',
@@ -52,11 +43,12 @@ export function CTA() {
             fontWeight: 360,
           }}
         >
-          Let&apos;s build the site your <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>audience</span> deserves.
+          Let&apos;s build the website your <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>business</span> deserves.
         </h2>
         <p style={{ fontSize: 19, color: '#C9C0B0', textAlign: 'center', maxWidth: '54ch', margin: '0 auto 48px', lineHeight: 1.55 }}>
-          45-minute discovery call. No slide deck. No sales script. Just an honest conversation about
-          whether we&apos;re the right studio for what you&apos;re trying to build.
+          Free 45-minute discovery call. No slide deck. No sales script. Just an honest conversation about
+          what you are building and whether we are the right studio for it.
+          Clients worldwide — quoted in <strong style={{ color: '#E8E1CE' }}>USD ($) and INR (₹)</strong>.
         </p>
 
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 56 }}>
@@ -88,6 +80,16 @@ export function CTA() {
             style={{ background: 'var(--paper)', color: 'var(--ink)', padding: '18px 28px', fontSize: 15 }}
           >
             Email instead
+          </a>
+          <a
+            href={NC_CONTACT_FORM}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-arrow"
+            onClick={() => track('cta_click', { id: 'final_form', label: 'Contact form', location: 'cta' })}
+            style={{ background: 'transparent', color: '#C9C0B0', border: '1px solid #3a342c', padding: '18px 28px', fontSize: 15 }}
+          >
+            Contact form
           </a>
         </div>
 
@@ -187,7 +189,7 @@ export function Footer() {
               <span className="serif" style={{ fontSize: 24, color: 'var(--paper)', letterSpacing: '-0.02em', fontWeight: 380 }}>{NC_BRAND}</span>
             </div>
             <p style={{ fontSize: 14, color: '#8A8175', maxWidth: '34ch', lineHeight: 1.6, margin: '0 0 18px 0' }}>
-              A four-person studio building bespoke websites for creators and service-led businesses. Conversion-first, calmly. Plans from ₹8,000.
+              A four-person studio building bespoke websites, landing pages and MVPs — for anyone with something worth building. Conversion-first. Custom pricing.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <a href={`mailto:${NC_EMAIL}`} style={{ fontSize: 13, color: '#E8E1CE', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.04em' }}>

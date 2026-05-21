@@ -12,8 +12,8 @@ export function Compare() {
   ];
   const us = [
     'We research your competitors: what is working in your market',
-    'UI/UX designed specifically to help you monetise your audience',
-    'Headlines and offers built around real audience signals, not guesses',
+    'UI/UX designed to get you enquiries, sign-ups and sales',
+    'Headlines and offers built around real buyer signals, not guesses',
     'Mobile-first, conversion-first. The CTA is always within reach',
     'Schema, sitemap, meta and content briefs on day one',
     '14 days of free iteration after launch, then a flat care plan',
@@ -40,7 +40,7 @@ export function Compare() {
         </h2>
         <p style={{ fontSize: 18.5, color: 'var(--ink-2)', maxWidth: '64ch', margin: '0 0 64px 0', lineHeight: 1.6 }}>
           Before we touch a pixel, we study your competitors: what is already working in your market,
-          how your audience decides to buy, and where the best UI/UX opportunity is. Then we build
+          how your customers decide to buy, and where the best UI/UX opportunity is. Then we build
           the site around that. That is the difference between a site that looks good and one that does something.
         </p>
 
@@ -89,7 +89,7 @@ export function Compare() {
               Design-first, research-never
             </h3>
             <p className="mono" style={{ fontSize: 11.5, color: 'var(--muted)', margin: '0 0 26px 0', letterSpacing: '0.04em' }}>
-              ~ ₹15,000 to ₹40,000 · 4 to 6 weeks · one designer juggling 12 clients
+              ~ $200 to $800 · 4 to 6 weeks · one designer juggling 12 clients
             </p>
 
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 14 }}>
@@ -153,10 +153,10 @@ export function Compare() {
               </span>
             </div>
             <h3 className="serif" style={{ fontSize: 34, margin: '0 0 6px 0', letterSpacing: '-0.02em', fontWeight: 380 }}>
-              Research, then build for monetisation
+              Research, then build for conversion
             </h3>
             <p className="mono" style={{ fontSize: 11.5, color: '#C9C0B0', margin: '0 0 26px 0', letterSpacing: '0.04em' }}>
-              from ₹8,000 · 10 to 18 days · 4 specialists, one project at a time
+              custom pricing · 10 to 18 days · 4 specialists, one project at a time
             </p>
 
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: 14 }}>
@@ -374,26 +374,26 @@ export function MissedOpportunity() {
             fontWeight: 360,
           }}
         >
-          Your audience is already paying. <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>Someone else.</span>
+          Your competitor&apos;s site is closing your leads. <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>Right now.</span>
         </h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 64, alignItems: 'center' }} className="missed-grid">
           <div>
             <p style={{ fontSize: 19.5, lineHeight: 1.6, color: '#E8E1CE', maxWidth: '54ch' }}>
-              Creators in your niche are quietly building 7-figure businesses off their following:
-              cohorts, paid newsletters, mini-products, coaching slots. The thing they all have in
-              common? A <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>real website</span> doing
-              the heavy lifting. Not a linktree. Not an Instagram bio.
+              Most businesses get traffic they never convert. A slow page, a confusing layout,
+              a CTA buried below the fold — and your potential customer is already on someone
+              else&apos;s site. The businesses that grow all share one thing:{' '}
+              a <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>real website</span> doing the heavy lifting.
             </p>
             <p style={{ fontSize: 19.5, lineHeight: 1.6, color: '#E8E1CE', maxWidth: '54ch', marginTop: 22 }}>
-              Every month you point your audience at a generic link, you are quietly handing that
-              attention back to the platform. We help you take it home.
+              Whether you are a startup, a freelancer, a local business or a service provider —
+              every month without a conversion-optimised site is revenue quietly walking out the door.
             </p>
 
             <div style={{ marginTop: 36, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="missed-stats">
-              <Stat n="₹0" l="Earnings if you only post on social" tone="dim" />
-              <Stat n="₹3 to 8L" l="Avg. monthly from a well-built page" tone="accent" />
-              <Stat n="12 mo." l="Compounding before SEO pays itself back" tone="dim" />
+              <Stat n="2 sec" l="Average bounce if your page loads slow" tone="dim" />
+              <Stat n="4×" l="More leads from a conversion-optimised site" tone="accent" />
+              <Stat n="12 mo." l="Before SEO compounds and pays itself back" tone="dim" />
             </div>
           </div>
 
@@ -411,9 +411,9 @@ export function MissedOpportunity() {
               The math, in plain numbers
             </div>
             <div className="serif" style={{ fontSize: 'clamp(28px,3.4vw,38px)', lineHeight: 1.1, letterSpacing: '-0.02em', color: '#F4EDDE', fontWeight: 380, marginBottom: 18 }}>
-              A creator with <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>25k</span> followers and no website makes brand-deal money.
+              A business with <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>1,000</span> visitors and a 1% conversion rate gets 10 leads.
               <br />
-              The same creator <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>with</span> a real product surface compounds into a business.
+              The <span className="serif-italic" style={{ color: 'var(--accent-soft)' }}>same traffic</span> through a well-built site gets 40.
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               <MiniStat label="Email capture" value="38%" />
@@ -433,7 +433,7 @@ export function MissedOpportunity() {
                 borderTop: '1px solid #2a241d',
               }}
             >
-              ↳ if you are between 10k and 500k followers, this is what you are leaving on the table.
+              ↳ if you are getting traffic but not enquiries, this is what you are leaving on the table.
             </div>
           </div>
         </div>

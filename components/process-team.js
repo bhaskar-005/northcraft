@@ -5,7 +5,7 @@ export function Process() {
     {
       n: '01',
       t: 'Discovery call',
-      d: '45 minutes. We map your audience, the offer they’re actually paying for, and the one number this site needs to move.',
+      d: '45 minutes. We map your market, the offer you are actually building, and the one number this site needs to move.',
       meta: 'free · no commitment',
       tasks: ['Audience mapping', 'Offer audit', 'Goal alignment'],
     },
@@ -148,7 +148,7 @@ export function Process() {
 const TEAM = [
   { name: 'Bhaskar Bhandari', role: 'Founder & Software Engineer', initials: 'BB', tone: 'a', location: 'Dehradun, IN' },
   { name: 'Harish',           role: 'UI / UX & Graphic Design',    initials: 'H',  tone: 'c', location: 'Dehradun, IN' },
-  { name: 'Nikhil',           role: 'Software Engineer',           initials: 'N',  tone: 'b', location: 'Remote · India' },
+  { name: 'Nikhil',           role: 'Backend Engineer',           initials: 'N',  tone: 'b', location: 'Remote · India' },
   { name: 'Hitesh Bisht',     role: 'Market Research & SEO',       initials: 'HB', tone: 'd', location: 'Almora, IN' },
 ];
 

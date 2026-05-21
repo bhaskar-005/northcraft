@@ -15,3 +15,5 @@ export const NC_WA_LINK = `https://wa.me/${NC_PHONE}?text=${encodeURIComponent(N
 export const NC_WA_SCHEDULE_TEXT =
   'Hi Bhaskar, I would like to schedule a meeting to discuss a website project. My preferred date and time are: [your preferred date and time here].';
 export const NC_WA_SCHEDULE_LINK = `https://wa.me/${NC_PHONE}?text=${encodeURIComponent(NC_WA_SCHEDULE_TEXT)}`;
+
+export const NC_CONTACT_FORM = 'https://app.youform.com/forms/q8daxg7a';

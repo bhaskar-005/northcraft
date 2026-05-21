@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { NorthcraftMark, BrowserFrame } from './atoms';
 import { NC_WA_LINK, NC_WA_SCHEDULE_LINK } from './contact';
 import { track } from './analytics';
+import { HeroCircles } from './hero-circles';
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -131,24 +132,7 @@ export function Nav() {
 export function Hero() {
   return (
     <section id="top" style={{ position: 'relative', paddingTop: 56, paddingBottom: 96, overflow: 'hidden' }}>
-      <svg
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          right: '-12%',
-          top: '-8%',
-          opacity: 0.05,
-          pointerEvents: 'none',
-        }}
-        width="780"
-        height="780"
-        viewBox="0 0 640 640"
-        fill="none"
-      >
-        {[319, 260, 200, 140, 80, 30].map(r => (
-          <circle key={r} cx="320" cy="320" r={r} stroke="#14110D" strokeWidth="1" />
-        ))}
-      </svg>
+      <HeroCircles />
 
       <div className="container" style={{ position: 'relative' }}>
         <div
@@ -179,9 +163,9 @@ export function Hero() {
             fontWeight: 360,
           }}
         >
-          Websites that turn an{' '}
-          <span className="serif-italic" style={{ color: 'var(--accent)' }}>audience</span>{' '}
-          into <span style={{ whiteSpace: 'nowrap' }}>income.</span>
+          Websites that turn{' '}
+          <span className="serif-italic" style={{ color: 'var(--accent)' }}>visitors</span>{' '}
+          into <span style={{ whiteSpace: 'nowrap' }}>customers.</span>
         </h1>
 
         <div
@@ -196,8 +180,9 @@ export function Hero() {
           }}
         >
           <p style={{ fontSize: 19.5, lineHeight: 1.55, color: 'var(--ink-2)', maxWidth: '54ch', margin: 0 }}>
-            A four-person studio building bespoke landing pages and product sites
-            for creators, coaches and service-led businesses. Plans start at <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>₹8,000</strong>, every pixel engineered to earn back its cost.
+            A four-person studio building bespoke landing pages, product sites and full MVPs —
+            for anyone with something worth building. No templates, no bloat.{' '}
+            <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>Pricing is scoped to your project.</strong>
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-start', flexWrap: 'wrap' }}>
             <a
@@ -289,9 +274,9 @@ export function Hero() {
             </div>
             <div style={{ width: 1, height: 40, background: '#3a342c' }} />
             <div>
-              <div className="serif" style={{ fontSize: 36, lineHeight: 1, letterSpacing: '-0.02em' }}>₹8K<span style={{ fontSize: 18 }}>+</span></div>
+              <div className="serif" style={{ fontSize: 36, lineHeight: 1, letterSpacing: '-0.02em' }}>100<span style={{ fontSize: 18 }}>%</span></div>
               <div className="mono" style={{ fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#C9C0B0', marginTop: 6 }}>
-                plans start from
+                custom built, zero templates
               </div>
             </div>
           </div>
@@ -346,11 +331,11 @@ export function Marquee() {
     'Brand systems',
     'Product sites',
     'E-commerce',
-    'Editorial / publishing',
-    'Cohort + course platforms',
+    'Startup MVPs',
+    'Booking + lead capture',
     'SEO foundations',
     'Conversion-first design',
-    'From ₹8,000',
+    'Custom pricing',
   ];
   const row = [...items, ...items];
   return (
