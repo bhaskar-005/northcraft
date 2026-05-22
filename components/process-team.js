@@ -147,8 +147,8 @@ export function Process() {
 
 const TEAM = [
   { name: 'Bhaskar Bhandari', role: 'Founder & Software Engineer', initials: 'BB', tone: 'a', location: 'Dehradun, IN' },
-  { name: 'Harish',           role: 'UI / UX & Graphic Design',    initials: 'H',  tone: 'c', location: 'Dehradun, IN' },
-  { name: 'Nikhil',           role: 'Backend Engineer',           initials: 'N',  tone: 'b', location: 'Remote · India' },
+  { name: 'Harish Bhatt',     role: 'Co-Founder & AI/ML Engineer', initials: 'H',  tone: 'c', location: 'Dehradun, IN', partner: true, brand: 'Coding Knowledge' },
+  { name: 'Nikhil',           role: 'UI / UX & Graphic Design',   initials: 'N',  tone: 'b', location: 'Remote · India' },
   { name: 'Hitesh Bisht',     role: 'Market Research & SEO',       initials: 'HB', tone: 'd', location: 'Almora, IN' },
 ];
 
@@ -192,15 +192,28 @@ export function Team() {
               className="lift"
               style={{
                 background: 'var(--paper)',
-                border: '1px solid var(--line)',
+                border: m.partner ? '1px solid rgba(184,71,42,0.28)' : '1px solid var(--line)',
                 borderRadius: 16,
                 padding: '22px 22px 20px',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 14,
                 minHeight: 180,
+                position: 'relative',
               }}
             >
+              {m.partner && (
+                <div style={{
+                  position: 'absolute', top: 14, right: 14,
+                  fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase',
+                  background: 'rgba(184,71,42,0.1)', color: 'var(--accent)',
+                  padding: '3px 9px', borderRadius: 999,
+                  fontFamily: 'monospace',
+                  border: '1px solid rgba(184,71,42,0.22)',
+                }}>
+                  Partner
+                </div>
+              )}
               <TeamAvatar initials={m.initials} tone={m.tone} size={52} />
               <div>
                 <h3 className="serif" style={{ fontSize: 19, lineHeight: 1.2, letterSpacing: '-0.02em', margin: '0 0 4px 0', fontWeight: 400 }}>
@@ -209,6 +222,11 @@ export function Team() {
                 <div style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.4 }}>
                   {m.role}
                 </div>
+                {m.brand && (
+                  <div style={{ fontSize: 11, color: 'var(--accent)', marginTop: 4, letterSpacing: '0.02em' }}>
+                    {m.brand}
+                  </div>
+                )}
               </div>
               <div
                 className="mono"
@@ -253,10 +271,10 @@ export function Testimonial() {
     },
     {
       q: 'Their service was so good. Good wishes from my side to their team. With a little bit of negotiation we got some extra work in too. Looking forward to working with them again.',
-      name: 'Creator · Harish bhatt',
-      a: 'Repeat client',
+      name: 'Arjun Mehta',
+      a: 'Founder, DevStack Labs',
       stat: 'Bundle of work shipped',
-      photo: '/images/coding-knowledge.jpeg',
+      photo: null,
       tone: 'c',
     },
     {

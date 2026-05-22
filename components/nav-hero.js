@@ -297,30 +297,6 @@ export function Hero() {
             </div>
           </div>
 
-          <a
-            href="tel:+917906654584"
-            className="hero-chip"
-            style={{
-              position: 'absolute',
-              right: 24,
-              top: 24,
-              background: 'var(--paper)',
-              border: '1px solid var(--line)',
-              borderRadius: 999,
-              padding: '8px 14px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 10,
-              boxShadow: 'var(--shadow-card)',
-              textDecoration: 'none',
-              color: 'var(--ink)',
-            }}
-          >
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#2F4A2A', boxShadow: '0 0 0 4px rgba(47,74,42,0.12)' }} />
-            <span className="mono" style={{ fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-2)' }}>
-              +91 79066 54584
-            </span>
-          </a>
         </div>
       </div>
 

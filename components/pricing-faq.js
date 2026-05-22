@@ -9,7 +9,7 @@ const TIERS = [
   {
     name: 'Landing Page',
     sub: 'For a focused, fast launch',
-    badge: 'From $99 / ₹8K',
+    badge: 'From $75 / ₹6K',
     note: 'custom quote · delivered in ~10 days',
     highlight: false,
     inc: [
@@ -25,7 +25,7 @@ const TIERS = [
   {
     name: 'Full Website',
     sub: 'For businesses that need more',
-    badge: 'From $350 / ₹30K',
+    badge: 'From $299 / ₹25K',
     note: 'custom quote · delivered in ~18 days',
     highlight: true,
     inc: [
@@ -185,31 +185,44 @@ export function Pricing() {
         <div
           style={{
             marginTop: 32,
-            padding: 26,
-            background: 'var(--paper)',
-            border: '1px dashed var(--line)',
-            borderRadius: 18,
+            padding: '34px 40px',
+            background: 'var(--ink)',
+            border: '1px solid rgba(232,201,181,0.12)',
+            borderRadius: 20,
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            gap: 22,
+            gap: 28,
             flexWrap: 'wrap',
+            boxShadow: '0 24px 64px -24px rgba(20,17,13,0.45)',
+            position: 'relative',
+            overflow: 'hidden',
           }}
         >
-          <div>
-            <div className="mono" style={{ fontSize: 10.5, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>
+          <div
+            aria-hidden="true"
+            style={{
+              position: 'absolute', inset: 0,
+              background: 'radial-gradient(ellipse 60% 80% at 10% 50%, rgba(184,71,42,0.14) 0%, transparent 70%)',
+              pointerEvents: 'none',
+            }}
+          />
+          <div style={{ position: 'relative' }}>
+            <div className="mono" style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--accent-soft)', marginBottom: 10, opacity: 0.85 }}>
               Not sure which fits you?
             </div>
-            <div className="serif" style={{ fontSize: 22, color: 'var(--ink-2)', maxWidth: '52ch', letterSpacing: '-0.015em', lineHeight: 1.35, fontWeight: 380 }}>
-              Tell us what you are building and we will scope it honestly. No sales pressure — just a straight conversation about what makes sense.
+            <div className="serif" style={{ fontSize: 24, color: '#E8E1CE', maxWidth: '52ch', letterSpacing: '-0.018em', lineHeight: 1.32, fontWeight: 380 }}>
+              Tell us what you are building and we will scope it honestly.{' '}
+              <span style={{ color: '#C9C0B0' }}>No sales pressure — just a straight conversation about what makes sense.</span>
             </div>
           </div>
           <a
             href={NC_WA_LINK}
             target="_blank"
             rel="noreferrer"
-            className="btn btn-primary btn-arrow"
+            className="btn btn-arrow"
             onClick={() => track('cta_click', { id: 'pricing_custom', label: 'Talk to us', location: 'pricing' })}
+            style={{ background: 'var(--paper)', color: 'var(--ink)', flexShrink: 0, position: 'relative' }}
           >
             Talk to us
           </a>

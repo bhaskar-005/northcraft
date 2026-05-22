@@ -15,6 +15,7 @@ const PROJECTS = [
     logoSrc: '/images/coding-knowledge.jpeg',
     igFollowers: '600K+',
     tag: 'Creator platform · Education and Community',
+    partnerBadge: 'Partner · Harish Bhatt',
     status: 'live',
     layout: 'creator',
     summary:
@@ -334,6 +335,26 @@ function CaseHeader({ p, isDev }) {
       </div>
 
       <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+        {p.partnerBadge && (
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 7,
+              background: 'rgba(184,71,42,0.08)',
+              border: '1px solid rgba(184,71,42,0.22)',
+              borderRadius: 999,
+              padding: '5px 13px',
+              fontSize: 11,
+              color: 'var(--accent)',
+              letterSpacing: '0.08em',
+              fontFamily: 'JetBrains Mono, monospace',
+            }}
+          >
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)', opacity: 0.75, flexShrink: 0 }} />
+            {p.partnerBadge}
+          </div>
+        )}
         {p.playStoreHref && (
           <a
             href={p.playStoreHref}
@@ -433,18 +454,25 @@ function CreatorHeroBar({ p }) {
           />
         </a>
         <div>
-          {/* <div
+          <div
             className="mono"
             style={{
-              fontSize: 10.5,
+              fontSize: 10,
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: 'var(--accent)',
-              marginBottom: 6,
+              marginBottom: 8,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              background: 'rgba(184,71,42,0.08)',
+              border: '1px solid rgba(184,71,42,0.2)',
+              padding: '3px 10px',
+              borderRadius: 999,
             }}
           >
-            This creator chose us
-          </div> */}
+            Co-Founder & AI/ML Engineer
+          </div>
           <div
             className="serif"
             style={{
@@ -454,6 +482,7 @@ function CreatorHeroBar({ p }) {
               color: 'var(--ink)',
               fontWeight: 380,
               marginBottom: 6,
+              marginTop: 8,
             }}
           >
             <span className="serif-italic" style={{ color: 'var(--accent)' }}>
@@ -502,12 +531,12 @@ function CreatorHeroBar({ p }) {
             color: 'var(--muted)',
           }}
         >
-          What we built for them
+          Built in-house · our studio
         </div>
         <div style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.55, maxWidth: '38ch' }}>
-          The site where a{' '}
-          <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>600,000+ audience</strong>{' '}
-          converts into ebooks, notes, courses, resume reviews, jobs and community.
+          Harish Bhatt is our Co-Founder. Coding Knowledge is his creator brand —{' '}
+          <strong style={{ color: 'var(--ink)', fontWeight: 600 }}>designed, built and run by this studio</strong>.{' '}
+          600K+ audience, eight services, all converting on one site.
         </div>
       </div>
     </div>
