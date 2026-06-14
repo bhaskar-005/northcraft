@@ -1,6 +1,7 @@
 'use client';
 
 import { NordMark, WhatsAppGlyph } from './atoms';
+import { CTACircles } from './hero-circles';
 import {
   NC_EMAIL,
   NC_PHONE_TEL,
