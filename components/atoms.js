@@ -9,7 +9,7 @@ import {
 } from './contact';
 import { track } from './analytics';
 
-export const NorthcraftMark = ({ size = 28, color }) => (
+export const NordMark = ({ size = 28, color }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true">
     <circle cx="16" cy="16" r="15" stroke={color || 'currentColor'} strokeWidth="1.25" />
     <path d="M16 5.5 V26.5 M5.5 16 H26.5" stroke={color || 'currentColor'} strokeWidth="1" opacity="0.3" />
@@ -172,7 +172,7 @@ export function FloatingWhatsApp() {
             <div style={{ flex: 1 }}>
               <div className="serif" style={{ fontSize: 16, lineHeight: 1.1, fontWeight: 400 }}>Bhaskar</div>
               <div className="mono" style={{ fontSize: 9.5, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#A8D8C7', marginTop: 2 }}>
-                Northcraft Studio
+                Nord Studio
               </div>
             </div>
             <button

@@ -134,7 +134,7 @@ export function Compare() {
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 22 }}>
               <span className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C9C0B0' }}>
-                The Northcraft way
+                The Nord way
               </span>
               <span
                 className="mono"

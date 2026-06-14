@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { NorthcraftMark, BrowserFrame } from './atoms';
+import { NordMark, BrowserFrame } from './atoms';
 import { NC_WA_LINK, NC_WA_SCHEDULE_LINK } from './contact';
 import { track } from './analytics';
 
@@ -37,10 +37,10 @@ export function Nav() {
           padding: '16px 36px',
         }}
       >
-        <a href="#top" aria-label="Northcraft Studio home" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <NorthcraftMark size={26} />
+        <a href="#top" aria-label="Nord Studio home" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <NordMark size={26} />
           <span className="serif" style={{ fontSize: 22, letterSpacing: '-0.02em' }}>
-            Northcraft
+            Nord
           </span>
           <span
             className="mono"

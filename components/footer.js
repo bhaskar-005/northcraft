@@ -1,7 +1,6 @@
 'use client';
 
-import { NorthcraftMark, WhatsAppGlyph } from './atoms';
-import { CTACircles } from './hero-circles';
+import { NordMark, WhatsAppGlyph } from './atoms';
 import {
   NC_EMAIL,
   NC_PHONE_TEL,
@@ -185,7 +184,7 @@ export function Footer() {
         >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-              <NorthcraftMark size={28} color="#F4EDDE" />
+              <NordMark size={28} color="#F4EDDE" />
               <span className="serif" style={{ fontSize: 24, color: 'var(--paper)', letterSpacing: '-0.02em', fontWeight: 380 }}>{NC_BRAND}</span>
             </div>
             <p style={{ fontSize: 14, color: '#8A8175', maxWidth: '34ch', lineHeight: 1.6, margin: '0 0 18px 0' }}>

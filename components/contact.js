@@ -1,11 +1,10 @@
 export const NC_PHONE = '917906654584';
 export const NC_PHONE_DISPLAY = '+91 79066 54584';
 export const NC_PHONE_TEL = '+917906654584';
-// export const NC_EMAIL = 'codes.bhaskar@gmail.com';
-export const NC_EMAIL = 'northcraft@zohomail.in';
-export const NC_DOMAIN = 'northcraft.chronists.com';
-export const NC_DOMAIN_URL = 'https://northcraft.chronists.com/';
-export const NC_BRAND = 'Northcraft';
+export const NC_EMAIL = 'hello@thenordstudio.com';
+export const NC_DOMAIN = 'thenordstudio.com';
+export const NC_DOMAIN_URL = 'https://thenordstudio.com/';
+export const NC_BRAND = 'Nord';
 export const NC_LOCATION = 'Dehradun, IN';
 
 export const NC_WA_TEXT =
