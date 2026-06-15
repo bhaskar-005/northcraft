@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(python -c ' *)",
-      "Bash(node -e \"require\\('framer-motion'\\); console.log\\('installed'\\)\")"
+      "Bash(node -e \"require\\('framer-motion'\\); console.log\\('installed'\\)\")",
+      "Bash(magick -version)",
+      "Bash(convert -version)"
     ]
   }
 }

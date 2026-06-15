@@ -163,12 +163,12 @@ export function Work() {
               lineHeight: 0.96,
               letterSpacing: '-0.03em',
               margin: 0,
-              maxWidth: '14ch',
+              maxWidth: '16ch',
               fontWeight: 360,
             }}
           >
-            Four projects. Four different{' '}
-            <span className="serif-italic" style={{ color: 'var(--accent)' }}>challenges</span>.
+            A few recent builds. Every project, a different{' '}
+            <span className="serif-italic" style={{ color: 'var(--accent)' }}>challenge</span>.
           </h2>
           <p style={{ fontSize: 17, color: 'var(--ink-3)', maxWidth: '36ch', margin: 0, lineHeight: 1.6 }}>
             A 600K-creator platform, a consumer app, a WhatsApp SaaS, and an AI product in development.

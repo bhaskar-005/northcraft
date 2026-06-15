@@ -9,8 +9,8 @@ const TIERS = [
   {
     name: 'Landing Page',
     sub: 'For a focused, fast launch',
-    badge: 'From $75 / ₹6K',
-    note: 'custom quote · delivered in ~10 days',
+    badge: 'Starts from $75 / ₹6K',
+    note: 'custom quote · delivered in 1–3 days',
     highlight: false,
     inc: [
       '3 to 4 pages (home, about, services, contact)',
@@ -258,7 +258,7 @@ const FAQS = [
   },
   {
     q: 'How long does a project actually take?',
-    a: 'Landing page: ~10 days. Full website: ~18 days. Product MVP: 25 to 30 days. We have shipped a v1 in 5 days when a launch demanded it, but we will only do that if the offer is already fully locked.',
+    a: 'Landing page: 1 to 3 days. Full website: ~18 days. Product MVP: 25 to 30 days. We have shipped a v1 in 5 days when a launch demanded it, but we will only do that if the offer is already fully locked.',
   },
   {
     q: 'Do you work with international clients?',
